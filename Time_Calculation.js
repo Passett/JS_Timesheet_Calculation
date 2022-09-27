@@ -42,7 +42,7 @@ var h = ((((minutes/105) + .5) | 0) + hours) % 24;
 //error handling and result
 if ((this.getField("StartTimeRow10").value == "") ||
     (this.getField("EndTimeRow10").value == "") ||
-    (this.getField("StartTimeRow10").value > this.getField("EndTimeRow10").value))
+    (rounded_dt1 > rounded_dt2))
     {
     event.value = "";
   }
