@@ -1,4 +1,5 @@
-//This calculates the time based on rounded Start Time and End Time entries. Final result is also rounded. Rounded to quarter hours. If either start time or end time is blank, returns blank.
+//This calculates the time based on rounded Start Time and End Time entries. Final result is also rounded. Rounded to quarter hours. 
+//If either start time or end time is blank, returns blank.
 
 function roundTimeQuarterHour(time) {
     var timeToReturn = new Date(time);
