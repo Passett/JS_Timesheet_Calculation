@@ -1,4 +1,5 @@
-//This calculates the time based on rounded Start Time and End Time entries. Final result is also rounded. Rounded to quarter hours. If either start time or end time is blank, returns blank.
+//This calculates the time based on rounded Start Time and End Time entries. 
+//Final result is also rounded. Rounded to quarter hours. If either start time or end time is blank, returns blank.
 
 function roundTimeQuarterHour(time) {
     var timeToReturn = new Date(time);
@@ -7,14 +8,7 @@ function roundTimeQuarterHour(time) {
     timeToReturn.setSeconds(Math.round(timeToReturn.getSeconds() / 60) * 60);
     timeToReturn.setMinutes(Math.round(timeToReturn.getMinutes() / 15) * 15);
     return timeToReturn;
-}
-
-function timeToDecimal(time) {
-    var arr = t.split(':');
-    var dec = parseInt((arr[1]/6)*10, 10);
-
-    return parseFloat(parseInt(arr[0], 10) + '.' + (dec<10?'0':'') + dec);
-}  
+} 
 
 var time1 = this.getField("StartTimeRow10").value;
 var time2 = this.getField("EndTimeRow10").value;
@@ -34,7 +28,6 @@ diffInMilliSeconds -= hours * 3600;
 
 // calculate minutes
 var minutes = Math.floor(diffInMilliSeconds / 60) % 60;
-diffInMilliSeconds -= minutes * 60;
 
 var m = ((((minutes + 7.5)/15 | 0) * 15) % 60)*100/60;
 var h = ((((minutes/105) + .5) | 0) + hours) % 24;
@@ -46,5 +39,5 @@ if ((this.getField("StartTimeRow10").value == "") ||
     {
     event.value = "";
   }
-
+else if (diffInMilliSeconds!=0 && h+"."+m=="0.0"){event.value = "24.00"}
 else event.value =h + "." +m;
